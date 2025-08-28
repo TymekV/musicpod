@@ -44,16 +44,18 @@ class SettingsService {
         ),
       );
 
-      if (ps.getBool(SPKeys.windowFullscreen) ?? false) {
-        wm.setFullScreen(true);
-      } else if (ps.getBool(SPKeys.windowMaximized) ?? false) {
-        wm.maximize();
-      } else {
-        final height = ps.getInt(SPKeys.windowHeight) ?? 820;
-        final width = ps.getInt(SPKeys.windowWidth) ?? 950;
-        wm.setSize(Size(width.toDouble(), height.toDouble()));
-      }
-    }
+      ps.setBool(SPKeys.windowFullscreen, false);
+      ps.setBool(SPKeys.windowMaximized, false);
+
+      // if (ps.getBool(SPKeys.windowFullscreen) ?? false) {
+      //   wm.setFullScreen(true);
+      // } else if (ps.getBool(SPKeys.windowMaximized) ?? false) {
+      //   wm.maximize();
+      // } else {
+      //   final height = ps.getInt(SPKeys.windowHeight) ?? 820;
+      //   final width = ps.getInt(SPKeys.windowWidth) ?? 950;
+      //   wm.setSize(Size(width.toDouble(), height.toDouble()));
+      // }
   }
 
   final String? _downloadsDefaultDir;
